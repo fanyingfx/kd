@@ -37,6 +37,8 @@ func PrettyFormat(r *model.Result, onlyEN bool) string {
 		pronStr += fmt.Sprintf("%s %s / ", nation, v)
 	}
 	if pronStr != "" {
+		pronStr = strings.Replace(pronStr,"美","US",1);
+		pronStr = strings.Replace(pronStr,"英","UK",1);
 		pronStr = d.Pron(fmt.Sprintf("[%s]", strings.Trim(pronStr, "/ ")))
 		header = fmt.Sprintf("%s    %s", header, pronStr)
 	}
